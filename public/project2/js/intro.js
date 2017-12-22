@@ -32,8 +32,8 @@ function makeJSON(){
   // should return json, such that
   // obj.b[0].c[1] + obj.d[2].e[3] == "javascript"
   // TODO
-  obj = {b:[{c:[0,"java"]}],d:[0,0,{e:[0,0,0,"script"]}
-  
+  // obj = {b:[{c:[0,"java"]}],d:[0,0,{e:[0,0,0,"script"]}
+  obj = 1;  
   return obj;
 }
 

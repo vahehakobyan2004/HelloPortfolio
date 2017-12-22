@@ -23,9 +23,9 @@ function main(){
 }
 
 function setupWorld() {
-	drawAxes();
+	// drawAxes();
 	
-	addSphere({x:0, y: 100, vx: 0, vx: 1,})
+	// addSphere({x:0, y: 100, vx: 0, vx: 1,})
 
 	loadPlanets()
 }
@@ -36,17 +36,17 @@ function loadPlanets(){
 	// to turn degrees to radian: alpha * Math.PI / 180
 //------------------- BEGIN YOUR CODE
 
-for (var key in planets)
-{
-	addSphere({x:planets[key].distance, vz:planets[key], name: key});
+	for (var key in planets)
+	{
+		addSphere({x:planets[key].distance, vz:planets[key].velocity, name: key});
 
-}
+	}
 
 //------------------- END YOUR CODE
-	// scene.add(spotlight);
-	// scene.remove(light);
-	// scene.remove(ambientLight);
-	// scene.remove(background);
+	scene.add(sl);
+	scene.remove(light);
+	scene.remove(ambientLight);
+	scene.remove(background);
 }
 
 /*
@@ -112,10 +112,10 @@ function updateScene(){
 }
 
 function addTrail(pos){
-	// var meshTmp = new THREE.Mesh(geos.trail, mats.trail);
-	// meshTmp.position.set(pos.x, pos.y, pos.z)
-	// scene.add(meshTmp)
-	// trailCount++;
+	var meshTmp = new THREE.Mesh(geos.trail, mats.trail);
+	meshTmp.position.set(pos.x, pos.y, pos.z)
+	scene.add(meshTmp)
+	trailCount++;
 }
 
 
@@ -160,6 +160,8 @@ function getPosition(obj) {
 	var newX = obj.pos.x + v.x;
 	var newY = obj.pos.y + v.y;	
 	var newZ = obj.pos.z + v.z;	
+
+	console.log({x : newX, y : newY, z : newZ})
 	
 	return {x : newX, y : newY, z : newZ}
 }
